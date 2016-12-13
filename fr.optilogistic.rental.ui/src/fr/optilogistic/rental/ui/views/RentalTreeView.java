@@ -2,12 +2,10 @@ package fr.optilogistic.rental.ui.views;
 
 import java.util.ArrayList;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
-import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 
 import fr.optilogistic.rental.core.RentalCoreActivator;
@@ -27,6 +25,7 @@ public class RentalTreeView extends ViewPart {
 		input.add(RentalCoreActivator.getAgency());
 		tv.setInput(input);
 		tv.expandAll();
+		getSite().setSelectionProvider(tv);
 	}
 	
 	@Override

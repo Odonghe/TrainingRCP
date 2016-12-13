@@ -1,7 +1,6 @@
 package fr.optilogistic.rental.ui.providers;
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Collection;
 
 import org.eclipse.jface.viewers.IColorProvider;
@@ -25,7 +24,10 @@ final public class RentalProvider extends LabelProvider implements ITreeContentP
 	private static Object[] EMPTY_RESULT = new Object[0];
 
 	private static RentalProvider instance;
+	
 	private static final String CUSTOMERS = "Customers";
+	private static final String RENTALS = "Locations";
+	private static final String OBJECTS_TO_RENT = "Objets à louer";
 	@Override
 	public Image getImage(Object element) {
 		if(element instanceof RentalAgency) {
@@ -43,9 +45,6 @@ final public class RentalProvider extends LabelProvider implements ITreeContentP
 		}
 		return super.getImage(element);
 	}
-
-	private static final String RENTALS = "Locations";
-	private static final String OBJECTS_TO_RENT = "Objets à louer";
 
 	private RentalProvider() {
 
