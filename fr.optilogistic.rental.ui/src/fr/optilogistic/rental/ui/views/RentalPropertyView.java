@@ -59,16 +59,16 @@ public class RentalPropertyView extends ViewPart implements ISelectionListener {
 			Random rand = new Random();
 			char[] charSequence = new char[2000];
 			for (int i = 0; i < 2000; i++) {
-				charSequence[i] = (char) (65 + rand.nextInt(28));
+				charSequence[i] = (char) (65 + rand.nextInt(26));
 			}
 			String longString = new String(charSequence);
 			lblDateRentalStart.setText(dateFormat.format(rental.getStartDate()) + longString);
 			lblDateRentalEnd.setText(dateFormat.format(rental.getEndDate()) + longString);
 		} else {
-			rentedObjectLabel.setText("                                                        ");
-			rentedToLabel.setText("                                                        "); 
-			lblDateRentalStart.setText("                                                        ");
-			lblDateRentalEnd.setText("                                                        ");
+			rentedObjectLabel.setText("");
+			rentedToLabel.setText(""); 
+			lblDateRentalStart.setText("");
+			lblDateRentalEnd.setText("");
 		}
 	}
 
@@ -93,6 +93,7 @@ public class RentalPropertyView extends ViewPart implements ISelectionListener {
 		simpleLabel.setText("Loué à: ");
 
 		rentedToLabel = new Label(infoGroup, SWT.NONE);
+		rentedToLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		Group grpDatesDeLocation = new Group(parent, SWT.NONE);
 		grpDatesDeLocation.setLayout(new GridLayout(2, false));
