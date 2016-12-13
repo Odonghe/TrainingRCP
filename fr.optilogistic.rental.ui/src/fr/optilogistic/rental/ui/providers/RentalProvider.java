@@ -4,15 +4,19 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
 
 import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
 
-final public class RentalProvider extends LabelProvider implements ITreeContentProvider {
+final public class RentalProvider extends LabelProvider implements ITreeContentProvider, IColorProvider {
 
 	private static Object[] EMPTY_RESULT = new Object[0];
 
@@ -24,6 +28,31 @@ final public class RentalProvider extends LabelProvider implements ITreeContentP
 
 	private RentalProvider() {
 
+	}
+
+	@Override
+	public Color getForeground(Object element) {
+		if(element instanceof RentalAgency) {
+			return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
+		}
+		if(element instanceof Customer) {
+			return Display.getCurrent().getSystemColor(SWT.COLOR_CYAN);
+		}
+		if (element instanceof RentalObject) {
+			return Display.getCurrent().getSystemColor(SWT.COLOR_MAGENTA);
+		}
+		if (element instanceof Rental) {
+			return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_YELLOW);
+		}
+		return Display.getCurrent().getSystemColor(SWT.COLOR_BLACK);
+	}
+
+	@Override
+	public Color getBackground(Object element) {
+		if(element instanceof RentalAgency) {
+			return Display.getCurrent().getSystemColor(SWT.COLOR_BLACK);
+		}
+		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
 	}
 
 	@Override
