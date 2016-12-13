@@ -15,6 +15,7 @@
             restorable="true">
       </view>
       <view
+            category="fr.optilogistic.rental.ui.category"
             class="fr.optilogistic.rental.ui.views.RentalTreeView"
             id="fr.optilogistic.rental.ui.rentalTreeView"
             name="RentalTree"

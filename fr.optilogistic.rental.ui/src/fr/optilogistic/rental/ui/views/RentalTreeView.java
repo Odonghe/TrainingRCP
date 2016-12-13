@@ -26,6 +26,7 @@ public class RentalTreeView extends ViewPart {
 		ArrayList<RentalAgency> input = new ArrayList<>();
 		input.add(RentalCoreActivator.getAgency());
 		tv.setInput(input);
+		tv.expandAll();
 	}
 	
 	@Override
