@@ -9,6 +9,7 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 
 import com.opcoach.training.rental.Customer;
@@ -16,13 +17,33 @@ import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
 
+import fr.optilogistic.rental.ui.RentalUIConstants;
+import fr.optilogistic.rental.ui.RentalUiActivator;
+
 final public class RentalProvider extends LabelProvider implements ITreeContentProvider, IColorProvider {
 
 	private static Object[] EMPTY_RESULT = new Object[0];
 
 	private static RentalProvider instance;
-
 	private static final String CUSTOMERS = "Customers";
+	@Override
+	public Image getImage(Object element) {
+		if(element instanceof RentalAgency) {
+			return RentalUiActivator.getDefault().getImageRegistry().get(RentalUIConstants.IMG_AGENCY);
+		}
+		if(element instanceof Node) {
+			switch(((Node) element).getLabel()) {
+			case CUSTOMERS:
+				return RentalUiActivator.getDefault().getImageRegistry().get(RentalUIConstants.IMG_CUSTOMER);
+			case RENTALS:
+				return RentalUiActivator.getDefault().getImageRegistry().get(RentalUIConstants.IMG_RENTAL);
+			case OBJECTS_TO_RENT:
+				return RentalUiActivator.getDefault().getImageRegistry().get(RentalUIConstants.IMG_RENTAL_OBJECT);
+			}
+		}
+		return super.getImage(element);
+	}
+
 	private static final String RENTALS = "Locations";
 	private static final String OBJECTS_TO_RENT = "Objets à louer";
 
