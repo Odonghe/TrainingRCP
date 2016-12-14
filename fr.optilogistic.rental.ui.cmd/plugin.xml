@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="fr.optilogistic.rental.ui.cmd.customerSelected">
+         <iterate>
+            <instanceof
+                  value="com.opcoach.training.rental.Customer">
+            </instanceof>
+         </iterate>
+      </definition>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="fr.optilogistic.rental.ui.cmd.handlers.CopyCustomerHandler"
+            commandId="org.eclipse.ui.edit.copy">
+         <enabledWhen>
+            <reference
+                  definitionId="fr.optilogistic.rental.ui.cmd.customerSelected">
+            </reference>
+         </enabledWhen>
+         <activeWhen>
+            <reference
+                  definitionId="fr.optilogistic.rental.ui.cmd.customerSelected">
+            </reference>
+         </activeWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:fr.optilogistic.rental.ui.rentalTreeView?after=additions">
+         <command
+               commandId="org.eclipse.ui.edit.copy"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="fr.optilogistic.rental.ui.cmd.customerSelected">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

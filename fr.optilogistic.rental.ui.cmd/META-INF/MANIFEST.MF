@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Cmd
+Bundle-SymbolicName: fr.optilogistic.rental.ui.cmd;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Optilogistic
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui;bundle-version="3.108.0",
+ org.eclipse.core.expressions,
+ fr.optilogistic.rental.ui;bundle-version="1.0.0"
