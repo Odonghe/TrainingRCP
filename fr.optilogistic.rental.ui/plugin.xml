@@ -31,5 +31,19 @@
             name="Rental">
       </perspective>
    </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.optilogistic.rental.ui.preferences.RentalPreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.optilogistic.rental.ui.preferences.RentalPreferencePage"
+            id="fr.optilogistic.rental.ui.RentalPreferenceFile"
+            name="RentalPreferencePage">
+      </page>
+   </extension>
 
 </plugin>
