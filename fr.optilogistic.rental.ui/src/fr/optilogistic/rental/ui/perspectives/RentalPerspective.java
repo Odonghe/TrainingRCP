@@ -5,6 +5,7 @@ import org.eclipse.ui.IPerspectiveFactory;
 
 public class RentalPerspective implements IPerspectiveFactory {
 
+	final public static String ID = "fr.optilogistic.rental.ui.perspectives.RentalPerspective";
 	/**
 	 * Creates the initial layout for a page.
 	 */
