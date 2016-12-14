@@ -11,12 +11,13 @@ public class RentalPerspective implements IPerspectiveFactory {
 	 */
 	public void createInitialLayout(IPageLayout layout) {
 		layout.setEditorAreaVisible(false);
-		String editorArea = layout.getEditorArea();
+		//String editorArea = layout.getEditorArea();
 		addFastViews(layout);
 		addViewShortcuts(layout);
 		addPerspectiveShortcuts(layout);
-		layout.addView("fr.optilogistic.rental.ui.rentalTreeView", IPageLayout.LEFT, 0.5f, IPageLayout.ID_EDITOR_AREA);
-		layout.addView("fr.optilogistic.rental.ui.propertyView", IPageLayout.RIGHT, 0.5f, IPageLayout.ID_EDITOR_AREA);
+		layout.addView("fr.optilogistic.rental.ui.customerPropertyView", IPageLayout.LEFT, 0.5f, IPageLayout.ID_EDITOR_AREA);
+		layout.addView("fr.optilogistic.rental.ui.rentalTreeView", IPageLayout.LEFT, 0.5f, "fr.optilogistic.rental.ui.customerPropertyView");
+		layout.addView("fr.optilogistic.rental.ui.propertyView", IPageLayout.BOTTOM, 0.5f, "fr.optilogistic.rental.ui.customerPropertyView");
 	}
 
 	/**

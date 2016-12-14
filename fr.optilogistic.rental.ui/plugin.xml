@@ -21,6 +21,13 @@
             name="%view.name.0"
             restorable="true">
       </view>
+      <view
+            category="fr.optilogistic.rental.ui.category"
+            class="fr.optilogistic.rental.ui.views.CustomerPropertyView"
+            id="fr.optilogistic.rental.ui.customerPropertyView"
+            name="Customer Property"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectives">
