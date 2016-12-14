@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Ui
+Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: fr.optilogistic.rental.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: fr.optilogistic.rental.ui.RentalUiActivator
-Bundle-Vendor: Optilogistic
+Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  fr.optilogistic.rental.core;bundle-version="1.0.0";visibility:=reexport,

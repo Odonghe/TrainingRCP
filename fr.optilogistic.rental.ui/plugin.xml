@@ -5,20 +5,20 @@
          point="org.eclipse.ui.views">
       <category
             id="fr.optilogistic.rental.ui.category"
-            name="Rental">
+            name="%category.name">
       </category>
       <view
             category="fr.optilogistic.rental.ui.category"
             class="fr.optilogistic.rental.ui.views.RentalPropertyView"
             id="fr.optilogistic.rental.ui.propertyView"
-            name="Rental Property"
+            name="%view.name"
             restorable="true">
       </view>
       <view
             category="fr.optilogistic.rental.ui.category"
             class="fr.optilogistic.rental.ui.views.RentalTreeView"
             id="fr.optilogistic.rental.ui.rentalTreeView"
-            name="RentalTree"
+            name="%view.name.0"
             restorable="true">
       </view>
    </extension>
@@ -28,7 +28,7 @@
             class="fr.optilogistic.rental.ui.perspectives.RentalPerspective"
             icon="icons/Rentals.png"
             id="fr.optilogistic.rental.ui.perspectives.RentalPerspective"
-            name="Rental">
+            name="%perspective.name">
       </perspective>
    </extension>
    <extension
@@ -42,7 +42,7 @@
       <page
             class="fr.optilogistic.rental.ui.preferences.RentalPreferencePage"
             id="fr.optilogistic.rental.ui.RentalPreferenceFile"
-            name="RentalPreferencePage">
+            name="%page.name">
       </page>
    </extension>
    <extension
@@ -50,7 +50,7 @@
       <command
             defaultHandler="fr.optilogistic.rental.ui.handlers.SimpleHandler"
             id="fr.optilogistic.rental.ui.hello-world"
-            name="Hello world">
+            name="%command.name">
       </command>
    </extension>
    <extension
