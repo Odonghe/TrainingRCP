@@ -22,23 +22,24 @@ import com.opcoach.training.rental.RentalObject;
 import fr.optilogistic.rental.ui.RentalUIConstants;
 import fr.optilogistic.rental.ui.RentalUiActivator;
 
-final public class RentalProvider extends LabelProvider implements ITreeContentProvider, IColorProvider, RentalUIConstants {
+final public class RentalProvider extends LabelProvider
+		implements ITreeContentProvider, IColorProvider, RentalUIConstants {
 
 	private static Object[] EMPTY_RESULT = new Object[0];
 
 	private static RentalProvider instance;
-	
+
 	private static final String CUSTOMERS = "Customers";
 	private static final String RENTALS = "Locations";
 	private static final String OBJECTS_TO_RENT = "Objets à louer";
-	
+
 	@Override
 	public Image getImage(Object element) {
-		if(element instanceof RentalAgency) {
+		if (element instanceof RentalAgency) {
 			return RentalUiActivator.getDefault().getImageRegistry().get(RentalUIConstants.IMG_AGENCY);
 		}
-		if(element instanceof Node) {
-			switch(((Node) element).getLabel()) {
+		if (element instanceof Node) {
+			switch (((Node) element).getLabel()) {
 			case CUSTOMERS:
 				return RentalUiActivator.getDefault().getImageRegistry().get(RentalUIConstants.IMG_CUSTOMER);
 			case RENTALS:
@@ -56,10 +57,10 @@ final public class RentalProvider extends LabelProvider implements ITreeContentP
 
 	@Override
 	public Color getForeground(Object element) {
-		if(element instanceof RentalAgency) {
+		if (element instanceof RentalAgency) {
 			return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
 		}
-		if(element instanceof Customer) {
+		if (element instanceof Customer) {
 			return getRGBColor(RentalUiActivator.getDefault().getPreferenceStore().getString(PREF_CUSTOMER_COLOR));
 		}
 		if (element instanceof RentalObject) {
@@ -73,7 +74,7 @@ final public class RentalProvider extends LabelProvider implements ITreeContentP
 
 	@Override
 	public Color getBackground(Object element) {
-		if(element instanceof RentalAgency) {
+		if (element instanceof RentalAgency) {
 			return Display.getCurrent().getSystemColor(SWT.COLOR_BLACK);
 		}
 		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
@@ -136,6 +137,17 @@ final public class RentalProvider extends LabelProvider implements ITreeContentP
 			instance = new RentalProvider();
 		}
 		return instance;
+	}
+
+	private Color getRGBColor(String rgbKey) {
+		ColorRegistry colorReg = JFaceResources.getColorRegistry();
+		Color col = colorReg.get(rgbKey);
+
+		if (col == null) {
+			colorReg.put(rgbKey, StringConverter.asRGB(rgbKey));
+			col = colorReg.get(rgbKey);
+		}
+		return col;
 	}
 
 	public class Node {
@@ -213,17 +225,5 @@ final public class RentalProvider extends LabelProvider implements ITreeContentP
 			return RentalProvider.this;
 		}
 	}
-	
-	private Color getRGBColor(String rgbKey) {
-		ColorRegistry colorReg = JFaceResources.getColorRegistry();
-		Color col = colorReg.get(rgbKey);
-		
-		if(col == null) {
-			colorReg.put(rgbKey, StringConverter.asRGB(rgbKey));
-			col = colorReg.get(rgbKey);
-		}
-		return col;
-	}
-	
-	
+
 }

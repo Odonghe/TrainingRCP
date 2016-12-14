@@ -45,5 +45,40 @@
             name="RentalPreferencePage">
       </page>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.optilogistic.rental.ui.handlers.SimpleHandler"
+            id="fr.optilogistic.rental.ui.hello-world"
+            name="Hello world">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <command
+               commandId="fr.optilogistic.rental.ui.hello-world"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.views.ResourceNavigator?after=additions">
+         <command
+               commandId="fr.optilogistic.rental.ui.hello-world"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:fr.optilogistic.rental.ui.rentalTreeView?after=additions">
+         <command
+               commandId="fr.optilogistic.rental.ui.hello-world"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
 
 </plugin>
