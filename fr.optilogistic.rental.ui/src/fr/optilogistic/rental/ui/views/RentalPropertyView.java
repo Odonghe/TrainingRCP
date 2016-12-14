@@ -27,6 +27,7 @@ import org.eclipse.ui.part.ViewPart;
 import com.opcoach.training.rental.Rental;
 
 import fr.optilogistic.rental.core.RentalCoreActivator;
+import fr.optilogistic.rental.ui.Messages;
 
 public class RentalPropertyView extends ViewPart implements ISelectionListener {
 
@@ -52,10 +53,10 @@ public class RentalPropertyView extends ViewPart implements ISelectionListener {
 
 	public void setRental(Rental rental) {
 		if (rental != null) {
-			rentedObjectLabel.setText(rental.getRentedObject() != null ? rental.getRentedObject().getName() : "");
+			rentedObjectLabel.setText(rental.getRentedObject() != null ? rental.getRentedObject().getName() : ""); //$NON-NLS-1$
 			rentedToLabel.setText(rental.getCustomer() != null
-					? rental.getCustomer().getFirstName() + " " + rental.getCustomer().getLastName() : "");
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+					? rental.getCustomer().getFirstName() + " " + rental.getCustomer().getLastName() : ""); //$NON-NLS-1$ //$NON-NLS-2$
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //$NON-NLS-1$
 			Random rand = new Random();
 			char[] charSequence = new char[2000];
 			for (int i = 0; i < 2000; i++) {
@@ -80,7 +81,7 @@ public class RentalPropertyView extends ViewPart implements ISelectionListener {
 		GridData gd_infoGroup = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
 		gd_infoGroup.widthHint = 307;
 		infoGroup.setLayoutData(gd_infoGroup);
-		infoGroup.setText("Informations");
+		infoGroup.setText(Messages.RentalPropertyView_Infos);
 		infoGroup.setLayout(new GridLayout(2, false));
 
 		rentedObjectLabel = new Label(infoGroup, SWT.NONE);
@@ -90,7 +91,7 @@ public class RentalPropertyView extends ViewPart implements ISelectionListener {
 		rentedObjectLabel.setLayoutData(gd);
 
 		Label simpleLabel = new Label(infoGroup, SWT.NONE);
-		simpleLabel.setText("Loué à: ");
+		simpleLabel.setText(Messages.RentalPropertyView_RentedTo);
 
 		rentedToLabel = new Label(infoGroup, SWT.NONE);
 		rentedToLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -101,16 +102,16 @@ public class RentalPropertyView extends ViewPart implements ISelectionListener {
 		gd_grpDatesDeLocation.widthHint = 311;
 		gd_grpDatesDeLocation.heightHint = 69;
 		grpDatesDeLocation.setLayoutData(gd_grpDatesDeLocation);
-		grpDatesDeLocation.setText("Dates de location");
+		grpDatesDeLocation.setText(Messages.RentalPropertyView_RentDate);
 
 		Label lblDu = new Label(grpDatesDeLocation, SWT.NONE);
-		lblDu.setText("du: ");
+		lblDu.setText(Messages.RentalPropertyView_FromDate);
 
 		lblDateRentalStart = new Label(grpDatesDeLocation, SWT.NONE);
 		lblDateRentalStart.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		Label lblAu = new Label(grpDatesDeLocation, SWT.NONE);
-		lblAu.setText("au: ");
+		lblAu.setText(Messages.RentalPropertyView_ToDate);
 
 		lblDateRentalEnd = new Label(grpDatesDeLocation, SWT.NONE);
 		lblDateRentalEnd.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));

@@ -7,12 +7,14 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import fr.optilogistic.rental.ui.Messages;
+
 public class SimpleHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
-		MessageDialog.openInformation(window.getShell(), "Title", "Hello world!");
+		MessageDialog.openInformation(window.getShell(), Messages.SimpleHandler_Title, Messages.SimpleHandler_HelloMessage);
 		return null;
 	}
 
