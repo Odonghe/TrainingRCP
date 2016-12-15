@@ -5,9 +5,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
 
-public class FixedBluePallete implements IColorProvider {
+public class FixedBluePalette implements IColorProvider {
 
-	public FixedBluePallete() {
+	public FixedBluePalette() {
 	}
 
 	@Override

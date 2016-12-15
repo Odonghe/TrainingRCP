@@ -3,9 +3,6 @@ package fr.optilogistic.rental.ui.providers;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 
-import org.eclipse.jface.resource.ColorRegistry;
-import org.eclipse.jface.resource.JFaceResources;
-import org.eclipse.jface.resource.StringConverter;
 import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -27,11 +24,11 @@ final public class RentalProvider extends LabelProvider
 
 	private static Object[] EMPTY_RESULT = new Object[0];
 
-	private static RentalProvider instance;
-
 	private static final String CUSTOMERS = "Customers";
 	private static final String RENTALS = "Locations";
 	private static final String OBJECTS_TO_RENT = "Objets à louer";
+	
+	private IColorProvider delegate;
 
 	@Override
 	public Image getImage(Object element) {
@@ -51,25 +48,16 @@ final public class RentalProvider extends LabelProvider
 		return super.getImage(element);
 	}
 
-	private RentalProvider() {
-
+	public RentalProvider() {
+		updateColourProvider();
 	}
 
 	@Override
 	public Color getForeground(Object element) {
-		if (element instanceof RentalAgency) {
-			return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
+		if(delegate != null) {
+			return delegate.getForeground(element);
 		}
-		if (element instanceof Customer) {
-			return getRGBColor(RentalUiActivator.getDefault().getPreferenceStore().getString(PREF_CUSTOMER_COLOR));
-		}
-		if (element instanceof RentalObject) {
-			return getRGBColor(RentalUiActivator.getDefault().getPreferenceStore().getString(PREF_RENTAL_OBJECT_COLOR));
-		}
-		if (element instanceof Rental) {
-			return getRGBColor(RentalUiActivator.getDefault().getPreferenceStore().getString(PREF_RENTAL_COLOR));
-		}
-		return Display.getCurrent().getSystemColor(SWT.COLOR_BLACK);
+		return Display.getCurrent().getSystemColor(SWT.COLOR_BLACK); 
 	}
 
 	@Override
@@ -130,24 +118,6 @@ final public class RentalProvider extends LabelProvider
 			return ((RentalObject) element).getName();
 		}
 		return super.getText(element);
-	}
-
-	public static synchronized RentalProvider getIntance() {
-		if (instance == null) {
-			instance = new RentalProvider();
-		}
-		return instance;
-	}
-
-	private Color getRGBColor(String rgbKey) {
-		ColorRegistry colorReg = JFaceResources.getColorRegistry();
-		Color col = colorReg.get(rgbKey);
-
-		if (col == null) {
-			colorReg.put(rgbKey, StringConverter.asRGB(rgbKey));
-			col = colorReg.get(rgbKey);
-		}
-		return col;
 	}
 
 	public class Node {
@@ -224,6 +194,11 @@ final public class RentalProvider extends LabelProvider
 		private RentalProvider getOuterType() {
 			return RentalProvider.this;
 		}
+	}
+
+	public void updateColourProvider() {
+		String palleteId = RentalUiActivator.getDefault().getPreferenceStore().getString(PREF_PALETTE);
+		delegate = RentalUiActivator.getDefault().getPalettes().get(palleteId).getProvider();
 	}
 
 }

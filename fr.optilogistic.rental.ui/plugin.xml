@@ -48,6 +48,12 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
+            class="fr.optilogistic.rental.ui.preferences.PalettePreferencePage"
+            id="fr.optilogistic.rental.ui.PalettePreferenceFile"
+            name="Palette preferences">
+      </page>
+      <page
+            category="fr.optilogistic.rental.ui.PalettePreferenceFile"
             class="fr.optilogistic.rental.ui.preferences.RentalPreferencePage"
             id="fr.optilogistic.rental.ui.RentalPreferenceFile"
             name="%page.name">
@@ -91,7 +97,7 @@
    <extension
          point="fr.optilogistic.rental.ui.pallete">
       <Pallete
-            class="fr.optilogistic.rental.ui.pallete.FixedBluePallete"
+            class="fr.optilogistic.rental.ui.pallete.FixedBluePalette"
             id="fr.optilogistic.rental.ui.pallete.blue"
             name="Fixed blue">
       </Pallete>

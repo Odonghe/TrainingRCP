@@ -20,23 +20,24 @@ import fr.optilogistic.rental.ui.providers.RentalProvider;
 
 public class RentalTreeView extends ViewPart implements IPropertyChangeListener {
 
-	private TreeViewer tv; 
-	
+	private TreeViewer tv;
+
 	public RentalTreeView() {
 	}
 
 	@Override
 	public void createPartControl(Composite parent) {
 		tv = new TreeViewer(parent);
-		tv.setContentProvider(RentalProvider.getIntance());
-		tv.setLabelProvider(RentalProvider.getIntance());
+		RentalProvider rentalProvider = new RentalProvider();
+		tv.setContentProvider(rentalProvider);
+		tv.setLabelProvider(rentalProvider);
 		ArrayList<RentalAgency> input = new ArrayList<>();
 		input.add(RentalCoreActivator.getAgency());
 		tv.setInput(input);
 		tv.expandAll();
-		
+
 		getSite().setSelectionProvider(tv);
-		
+
 		createContextMenu();
 	}
 
@@ -46,22 +47,25 @@ public class RentalTreeView extends ViewPart implements IPropertyChangeListener 
 		tv.getControl().setMenu(menu);
 		getSite().registerContextMenu(menuManager, tv);
 	}
-	
+
 	@Override
 	public void setFocus() {
 	}
 
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
+		if(tv.getContentProvider() instanceof RentalProvider) {
+			((RentalProvider) tv.getContentProvider()).updateColourProvider();
+		}
 		tv.refresh();
 	}
-	
+
 	@Override
 	public void init(IViewSite site) throws PartInitException {
 		super.init(site);
 		RentalUiActivator.getDefault().getPreferenceStore().addPropertyChangeListener(this);
 	}
-	
+
 	@Override
 	public void dispose() {
 		RentalUiActivator.getDefault().getPreferenceStore().removePropertyChangeListener(this);

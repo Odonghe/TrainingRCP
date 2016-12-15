@@ -23,6 +23,8 @@ public class RentalPreferenceInitializer extends AbstractPreferenceInitializer i
 		preferenceStore.setDefault(PREF_CUSTOMER_COLOR, StringConverter.asString(Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GREEN).getRGB()));
 		preferenceStore.setDefault(PREF_RENTAL_COLOR, StringConverter.asString(Display.getCurrent().getSystemColor(SWT.COLOR_DARK_RED).getRGB()));
 		preferenceStore.setDefault(PREF_RENTAL_OBJECT_COLOR, StringConverter.asString(Display.getCurrent().getSystemColor(SWT.COLOR_DARK_CYAN).getRGB()));
+		
+		preferenceStore.setDefault(PREF_PALETTE, "fr.optilogistic.ui.rental.ui.pallete.default");
 	}
 
 }

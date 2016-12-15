@@ -26,8 +26,8 @@ public class RentalUiActivator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static RentalUiActivator plugin;
-	
-	private Map<String, Pallete> palletes = new HashMap<>();
+
+	private Map<String, Pallete> palettes = new HashMap<>();
 
 	/**
 	 * The constructor
@@ -92,17 +92,22 @@ public class RentalUiActivator extends AbstractUIPlugin {
 	}
 
 	private void readPalletes() {
-		for(IConfigurationElement confElem : Platform.getExtensionRegistry().getConfigurationElementsFor("fr.optilogistic.rental.ui.pallete")) {
+		for (IConfigurationElement confElem : Platform.getExtensionRegistry()
+				.getConfigurationElementsFor("fr.optilogistic.rental.ui.pallete")) {
 			try {
 				Pallete pallete = new Pallete(confElem.getAttribute("id"));
 				pallete.setName(confElem.getAttribute("name"));
-				pallete.setProvider((IColorProvider)confElem.createExecutableExtension("class"));
-				palletes.put(pallete.getId(), pallete);
+				pallete.setProvider((IColorProvider) confElem.createExecutableExtension("class"));
+				palettes.put(pallete.getId(), pallete);
 				System.out.println("Pallete with id " + pallete.getId() + " added to map");
 			} catch (CoreException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
+
+	public Map<String, Pallete> getPalettes() {
+		return palettes;
+	}
+
 }
