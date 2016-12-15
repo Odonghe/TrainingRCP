@@ -28,7 +28,7 @@
 <stringAttribute key="selected_workspace_plugins" value="fr.optilogistic.rental.adapter@default:true,fr.optilogistic.rental.core@default:default,fr.optilogistic.rental.help@default:default,fr.optilogistic.rental.rcp@default:default,fr.optilogistic.rental.ui.cmd@default:default,fr.optilogistic.rental.ui.es@default:false,fr.optilogistic.rental.ui@default:default"/>
 <booleanAttribute key="show_selected_only" value="false"/>
 <stringAttribute key="templateConfig" value="${target_home}\configuration\config.ini"/>
-<booleanAttribute key="tracing" value="true"/>
+<booleanAttribute key="tracing" value="false"/>
 <mapAttribute key="tracingOptions">
 <mapEntry key="org.eclipse.core.contenttype/debug" value="false"/>
 <mapEntry key="org.eclipse.core.expressions/debug/TypeExtensionManager" value="false"/>
