@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension-point id="pallete" name="Pallete" schema="schema/pallete.exsd"/>
    <extension
          point="org.eclipse.ui.views">
       <category
@@ -86,6 +87,19 @@
                style="push">
          </command>
       </menuContribution>
+   </extension>
+   <extension
+         point="fr.optilogistic.rental.ui.pallete">
+      <Pallete
+            class="fr.optilogistic.rental.ui.pallete.FixedBluePallete"
+            id="fr.optilogistic.rental.ui.pallete.blue"
+            name="Fixed blue">
+      </Pallete>
+      <Pallete
+            class="fr.optilogistic.ui.rental.ui.pallete.DefaultPallete"
+            id="fr.optilogistic.ui.rental.ui.pallete.default"
+            name="Default">
+      </Pallete>
    </extension>
 
 </plugin>
