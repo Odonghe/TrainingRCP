@@ -57,7 +57,7 @@ public class CustomerPropertyView extends ViewPart implements ISelectionListener
 	public void createPartControl(Composite parent) {
 		parent.setLayout(new GridLayout(1, false));
 
-		Group groupInfos = new Group(parent, SWT.BORDER_DASH);
+		Group groupInfos = new Group(parent, SWT.BORDER);
 		GridData gd_groupInfos = new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1);
 		gd_groupInfos.widthHint = 161;
 		groupInfos.setLayoutData(gd_groupInfos);

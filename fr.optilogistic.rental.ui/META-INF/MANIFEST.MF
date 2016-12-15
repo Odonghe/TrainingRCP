@@ -5,11 +5,12 @@ Bundle-SymbolicName: fr.optilogistic.rental.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: fr.optilogistic.rental.ui.RentalUiActivator
 Bundle-Vendor: %Bundle-Vendor
-Require-Bundle: org.eclipse.ui,
+Require-Bundle: org.eclipse.ui;resolution:=optional,
  org.eclipse.core.runtime,
  fr.optilogistic.rental.core;bundle-version="1.0.0";visibility:=reexport,
  org.eclipse.emf.common;bundle-version="2.12.0",
- org.eclipse.emf.ecore;bundle-version="2.12.0"
+ org.eclipse.emf.ecore;bundle-version="2.12.0",
+ org.eclipse.rap.ui;bundle-version="3.1.1";resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: fr.optilogistic.rental.ui,

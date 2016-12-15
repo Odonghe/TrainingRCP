@@ -5,12 +5,13 @@ Bundle-SymbolicName: fr.optilogistic.rental.rcp;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Optilogistic
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.ui,
+ org.eclipse.ui;resolution:=optional,
  org.eclipse.equinox.ds;bundle-version="1.4.400",
  org.eclipse.equinox.event;bundle-version="1.3.200",
  org.eclipse.equinox.util;bundle-version="1.0.500",
- org.eclipse.e4.ui.workbench.addons.swt;bundle-version="1.2.100",
+ org.eclipse.e4.ui.workbench.addons.swt;bundle-version="1.2.100";resolution:=optional,
  fr.optilogistic.rental.ui;bundle-version="1.0.0",
- fr.optilogistic.rental.ui.cmd;bundle-version="1.0.0",
- fr.optilogistic.rental.help;bundle-version="1.0.0"
+ fr.optilogistic.rental.ui.cmd;bundle-version="1.0.0";resolution:=optional,
+ fr.optilogistic.rental.help;bundle-version="1.0.0";resolution:=optional,
+ org.eclipse.rap.ui;bundle-version="3.1.1";resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
